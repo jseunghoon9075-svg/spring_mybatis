@@ -4,6 +4,7 @@ import com.app.mybatis.domain.PostDTO;
 import com.app.mybatis.domain.PostVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,4 +25,7 @@ public interface PostMapper {
 //    조회수 증가
     public void updateReadCount(Long id);
 //    게시글 정렬
+    public List<PostDTO> selectAllWithOrder(String order);
+//    게시글 목록(정렬, 페이지네이션) - 동적쿼리
+    public List<PostDTO> selectAllWithParam(HashMap<String, Object> params);
 }
